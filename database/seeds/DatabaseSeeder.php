@@ -11,6 +11,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        Eloquent::unguard();
+        $this->call('AuthorsTableSeeder');
+        $this->command->info('Authors table seeded!');
+        $this->call('UsersTableSeeder');
+        $this->command->info('Users table seeded!');
+        $this->call('BooksTableSeeder');
+        $this->command->info('Books table seeded!');
     }
+    
+    //composer dump-autoload
 }
